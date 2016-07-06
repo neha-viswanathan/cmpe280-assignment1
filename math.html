@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Math Question Page">
+	<meta name="author" content="Neha Viswanathan">
+	<title>Math Question</title>
+</head>
+
+<body>
+	<br>
+	<br>
+	<br>
+	<div id="container" style="height:500px;width:70%;border:2px solid;margin:0 auto;position:relative;">
+		<header style="background-color:#C2C2C2;height:50px;font-weight:bold;font-size:15px;">
+			<br>
+			<center style="font-size:15px;">Question 1</center>
+		</header>
+		<br>
+		<div style="width:750px; height:750px; float:left;">
+			<div style="height:100px; float:left; width:900px;">
+				<p style="margin-left:12px">Given points (x1,y1) and (x2,y2), select the formula to find the equation of the 
+given line.</p> <img src="lineEquation.jpg" height="300px" width="300px" align="right" /> </div>
+			<form id="question" onSubmit="return submitAnswer();">
+        <div style="width: 300px; float: left; height: 100px;">
+          <input type="radio" id="option1" data-val="cor1" name="ans" value="1" style="margin-left: 40px; margin-top: 30px;">
+          <math>
+            <mrow>
+          	<mi>y</mi>
+            <mo>=</mo>
+            <mi>m</mi>
+            <mi>x</mi>
+            </msup>
+            <mo>+</mo>
+            <mi>b</mi>
+            </msup>
+            </mrow>
+         </math>
+          <br> <br> <input type="radio" data-val="cor2" name="ans" id="option2" value="2"
+            style="margin-left: 40px; margin-top: 30px;">
+          <math>
+           <mrow>
+           <mi>y</mi>
+           <mo>−</mo>
+           <msub>
+           <mi>y</mi>
+           <mn>1</mn>
+           </msub>
+           <mo>=</mo>
+           <mi>m</mi>
+           <mo>(</mo>
+           <mi>x</mi>
+           <mo>−</mo>
+           <msub>
+           <mi>x</mi>
+           <mn>1</mn>
+           </msub>
+           <mo>)</mo>
+           </mrow>
+        </math>
+        </div>
+
+        <div style="width: 300px; float: left;">
+          <input type="radio" id="option3" data-val="cor3" name="ans" value="3" style="margin-left: 40px; margin-top: 30px;">
+          <math>
+        <mrow>
+      	<mo>(</mo>
+        <mi>x</mi>
+        <mo>−</mo>
+        <mi>h</mi>
+        <mo>)</mo>
+        <mn>
+						<sup>2</sup></mn>
+        <mo>+</mo>
+        <mo>(</mo>
+        <mi>y</mi>
+        <mo>−</mo>
+        <mi>k</mi>
+        <mo>)</mo>
+        <mn>
+						<sup>2</sup></mn>
+        <mo>=</mo>
+        <mi>r</mi>
+        <mn>
+						<sup>2</sup></mn>
+        </mrow>
+      </math>
+          <br> <br>
+
+          <div style="width: 10%; float: left;">
+            <input type="radio" id="option4" data-val="cor4" name="ans" value="4" style="margin-left: 40px; margin-top: 30px;">
+          </div>
+          <div style="width: 50%; margin-left: 60px;">
+            <math xmlns='http://www.w3.org/1998/Math/MathML' display='block'>
+        <mrow>
+        	<mrow>
+       			<mi>y</mi>
+      			<mo>-</mo>
+      			<msub>
+      				<mi>y</mi>
+      				<mn>2</mn>
+      			</msub>
+      		</mrow>
+      		<mo>=</mo>
+        	<mfrac>
+				<mrow>
+				<mrow>
+    				<msub>
+    					<mi>y</mi>
+    					<mn>2</mn>
+    				</msub>
+
+        			<mo>-</mo>
+        			<mrow>
+        			<msub>
+       					<mi>y</mi>
+    					<mn>1</mn>
+    				</msub>
+    				</mrow>
+    				</mrow>
+    			</mrow>
+    				<mrow>
+    				<mrow>
+    					<msub>
+    						<mi>x</mi>
+    						<mn>2</mn>
+    					</msub>
+
+        				<mo>-</mo>
+        				<mrow>
+        				<msub>
+       						<mi>x</mi>
+       						<mn>1</mn>
+    					</msub>
+    					</mrow>
+    					</mrow>
+    				</mrow>
+    		</mfrac>
+    		<mo>(</mo>
+    		<mi>x</mi>
+    		<mo>-</mo>
+    		<msub>
+				<mi>x</mi>
+    			<mn>2</mn>
+    		</msub>
+    		<mo>)</mo>
+        	</mrow>
+     </math>
+          </div>
+        </div>
+
+
+        <div style="width: 400px;">
+          <button value="Submit" style="font-weight: bold; float: left; height: 40px; margin-top: 80px; margin-left: 
+35px;">Submit
+            & Next Question</button>
+          &nbsp;&nbsp; &nbsp; &nbsp;
+        </div>
+      </form>
+
+      <button onclick="ResetAction();" style="font-weight: bold; height: 40px; margin-left: 120px; margin-top: 60px;">Cancel &
+        Clear Selection</button>
+		</div>
+	</div>
+</body>
+<script>
+function ResetAction() {
+		var question = document.getElementById("question");
+		for (var i = 0; i < question.ans.length; i++) {
+			if (question.ans[i].checked == true) {
+				question.ans[i].checked = false;
+			}
+		}
+	}
+	function submitAnswer() {
+		var question = document.getElementById("question");
+		var selected = 0;
+		var correctAns = "4";
+		var totalQs = 1;
+		var correctQs = 0;
+		var totalRs = 0;
+		var correctRs = 0;
+		var totalVs = 0;
+		var correctVs = 0;
+		for (var i = 0; i < question.ans.length; i++) {
+			if (question.ans[i].checked) {
+				selected = 1;
+				var selectedValue = question.ans[i].value;
+				if (selectedValue == correctAns) {
+				
+					correctQs++;
+				}
+				break;
+			}
+		}
+		if (selected == 0) {
+			alert("Select an answer");
+		} else {
+			location = "cosine.html?correctQ=" + correctQs + "&totalQ="
+					+ totalQs + "&correctR=" + correctRs + "&totalR=" + totalRs
+					+ "&correctV=" + correctVs + "&totalV=" + totalVs;
+		}
+		return false;
+	}
+</script>
+</html>

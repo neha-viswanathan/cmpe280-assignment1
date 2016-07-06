@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Result Page">
+    <meta name="author" content="Neha Viswanathan">
+    <title>Student Result</title>
+  </head>
+  <body onload="FinishAction()">
+    <div id="container" style="height:700px;width:70%;border:2px solid;margin:0 auto;position:relative;">
+		<header style="background-color:#C2C2C2;height:50px;font-weight:bold;font-size:15px;">
+			<br>
+			<center style="font-size:15px;">Result Summary</center>
+		</header>
+		<br>	
+		<div class="summary" style="width:95%;height:500px;margin-left:20px;border: 2px solid;">
+      	
+      	   <details>
+           <summary style="margin-left:10px;"><b>Quantitative Section</b></summary>
+           <p style="margin-left:10px;"> Number of Questions Answered :<span id="cala1"> </span></p>
+           <p style="margin-left:10px;"> Number of Correct Answers : <span id="cala2"> </span></p>
+           <p style="margin-left:10px;"> Score : <span id="cala3"> </span></p>
+           </details><br>
+
+           <details>
+           <summary style="margin-left:10px;"><b>Reading Section</b></summary>
+           <p style="margin-left:10px;"> Number of Questions Answered : <span id="calb1"> </span></p>
+           <p style="margin-left:10px;"> Number of Correct Answers : <span id="calb2"> </span></p>
+           <p style="margin-left:10px;"> Score : <span id="calb3"> </span></p>
+           </details><br>
+
+           <details>
+           <summary style="margin-left:10px;"><b>Audio/Video Section </b></summary>
+           <p style="margin-left:10px;"> Number of Questions Answered : <span id="calc1"> </span></p>
+           <p style="margin-left:10px;"> Number of Correct Answers : <span id="calc2"> </span></p>
+           <p style="margin-left:10px;"> Score : <span id="calc3"> </span></p>
+           </details>
+      
+		</div>
+		
+	   <div style="text-align: center;">
+	   <footer>
+    <h1 style="font-size:20px;"><center>Thank You!!</center></h1>
+           <center>
+		   <button onclick="location.href = 'login.html';" style="font-weight:bold;width:150px;height:30px;">Finish</button>
+		   </center>
+		   </footer>
+</div>
+ </div>
+  </body>
+  <script>
+function getUrl() {
+   var input = [], hash;
+   var hash_var = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+   for (var i = 0; i < hash_var.length; i++) {
+       hash = hash_var[i].split('=');
+       input.push(hash[0]);
+       input[hash[0]] = hash[1];
+   }
+   return input;
+}
+
+
+function FinishAction()
+{
+	var a= getUrl();
+	var totalQs = parseInt(a["totalQ"] == null ? 0 : a["totalQ"]);
+	var correctQs = parseInt(a["correctQ"] == null ? 0 : a["correctQ"]);
+	var totalVs = parseInt(a["totalV"] == null ? 0 : a["totalV"]);
+	var correctVs = parseInt(a["correctV"] == null ? 0 : a["correctV"]);
+	var totalRs = parseInt(a["totalR"] == null ? 0 : a["totalR"]);
+	var correctRs = parseInt(a["correctR"] == null ? 0 : a["correctR"]);
+ 	document.getElementById("cala1").innerHTML= totalQs;
+	document.getElementById("cala2").innerHTML= correctQs;
+	document.getElementById("cala3").innerHTML= correctQs*50;
+	
+	document.getElementById("calb1").innerHTML= totalRs;
+	document.getElementById("calb2").innerHTML= correctRs;
+	document.getElementById("calb3").innerHTML= correctRs*100;
+	
+	document.getElementById("calc1").innerHTML= totalVs;
+	document.getElementById("calc2").innerHTML= correctVs;
+	document.getElementById("calc3").innerHTML= correctVs*100;
+}
+
+</script>
+</html>

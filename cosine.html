@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Math Question Page">
+	<meta name="author" content="Neha Viswanathan">
+	<title>Math Question</title>
+</head>
+
+<body>
+	<br>
+	<br>
+	<br>
+	<div id="container" style="height:500px;width:70%;border:2px solid;margin:0 auto;position:relative;">
+		<header style="background-color:#C2C2C2;height:50px;font-weight:bold;font-size:15px;">
+			<br>
+			<center style="font-size:15px;">Question 2</center>
+		</header>
+		<br>
+		<div style="height: 80px;">
+      <p style="margin-left: 40px;">Select the cosine theorem formula.</p>
+    </div>
+    <form id="question" onSubmit=" return submitAnswer();">
+      <div style="float: left; width: 400px; height: 100px;">
+        <div style="width: 65px; float: left; height: 50px;">
+          <input type="radio" id="option1" data-val="cor1" name="ans" value="1" style="margin-left: 40px; margin-top: 30px;">
+        </div>
+        <br>
+
+        <div style="width: 40%; margin-left: 60px; height: 30px;">
+          <math xmlns='http://www.w3.org/1998/Math/MathML' display='block'>
+  			<mrow>
+  			<mi>cos</mi>
+  			<mo>(</mo>
+  			<mo>&alpha;</mo>
+    		<mo>&plusmn;</mo>
+  			<mo>&beta;</mo>
+    		<mo>)</mo>
+    		<mo>=</mo>
+    		<mi>cos</mi>
+    		<mo>&alpha;</mo>
+    		<mi>cos</mi>
+    		<mo>&beta;</mo>
+    		<mo>&mnplus;</mo>
+    		 <mi>sin</mi>
+    		<mo>&alpha;</mo>
+    		<mi>sin</mi>
+    		<mo>&beta;</mo>
+    		</math>
+        </div>
+        <br>
+
+        <div style="width: 65px; float: left; height: 50px;">
+          <input type="radio" id="option2" data-val="cor2" name="ans" value="2" style="margin-left: 40px; margin-top: 40px;">
+        </div>
+        <br>
+
+        <div style="width: 200px; margin-left: 60px; height: 100px;">
+          <math xmlns='http://www.w3.org/1998/Math/MathML' display='block'>
+ 			    <mrow>
+  				<mi>sin</mi>
+  				<mo>&alpha;</mo>
+  				<mo>+</mo>
+  				<mi>sin</mi>
+  				<mo>&beta;</mo>
+  				<mo>=</mo>
+   				<mi>2</mi>
+   				<mi>sin</mi>
+						<mo>(</mo>
+   				<mfrac>
+						<mrow>
+    			<mn>&alpha;</mn>
+    			<mo>+</mo>
+     			<mn>&beta;</mn></mrow>
+    			<mi>2</mi>
+ 				</mfrac>
+						<mo>)</mo>
+  			    <mi>cos</mi>
+						<mo>(</mo>
+   				<mfrac>
+						<mrow>
+   				<mn>&alpha;</mn>
+    			<mo>-</mo>
+   				<mn>&beta;</mn></mrow>
+   				<mi>2</mi>
+ 				</mfrac>
+						<mo>)</mo>
+       			</mrow>
+			 </math>
+        </div>
+      </div>
+      <div style="float: left; width: 400px;">
+        <div style="width: 65px;; float: left; height: 50px;">
+          <input type="radio" id="option3" data-val="cor3" name="ans" value="3" style="margin-left: 40px; margin-top: 30px;">
+        </div>
+        <br>
+        <div style="width: 40%; margin-left: 60px; height: 30px;">
+
+          <math xmlns='http://www.w3.org/1998/Math/MathML' display='block'>
+  <mrow>
+  	<mi>sin</mi>
+  	<mo>(</mo>
+  	<mo>&alpha;</mo>
+     <mo>&plusmn;</mo>
+    <mo>&beta;</mo>
+    <mo>)</mo>
+    <mo>=</mo>
+    <mi>sin</mi>
+    <mo>&alpha;</mo>
+    <mi>cos</mi>
+    <mo>&beta;</mo>
+    <mo>&plusmn;</mo>
+     <mi>cos</mi>
+    <mo>&alpha;</mo>
+    <mi>sin</mi>
+    <mo>&beta;</mo>
+   </mrow>
+</math>
+        </div>
+        <br>
+        <div style="width: 65px; float: left; height: 50px;">
+          <input type="radio" id="option4" data-val="cor4" name="ans" value="4" style="margin-left: 40px; margin-top: 40px;">
+        </div>
+        <br>
+        <div style="width: 200px; margin-left: 60px; height: 30px;">
+
+          <math xmlns='http://www.w3.org/1998/Math/MathML' display='block'>
+  <mrow>
+  	<mi>sin</mi>
+  	<mo>&alpha;</mo>
+  	<mo>-</mo>
+  	<mi>sin</mi>
+  	<mo>&beta;</mo>
+  	<mo>=</mo>
+   <mi>2</mi>
+    <mi>cos</mi>
+						<mo>(</mo>
+    <mfrac>
+						<mrow>
+    <mn>&alpha;</mn>
+    <mo>+</mo>
+     <mn>&beta;</mn></mrow>
+    <mi>2</mi>
+  </mfrac>
+						<mo>)</mo>
+   <mi>sin</mi>
+						<mo>(</mo>
+    <mfrac>
+						<mrow>
+    <mn>&alpha;</mn>
+    <mo>-</mo>
+     <mn>&beta;</mn></mrow>
+    <mi>2</mi>
+  </mfrac>
+						<mo>)</mo>
+       	</mrow>
+</math>
+        </div>
+      </div>
+      <br> <br>
+
+
+      <div style="width: 400px;">
+        <button value="Submit" style="font-weight: bold; float: left; height: 40px; margin-left: 35px; margin-top: 80px;">Submit &
+          Next Question</button>
+        &nbsp;&nbsp; &nbsp; &nbsp;
+      </div>
+    </form>
+
+
+    <button onclick="ResetAction();" style="font-weight: bold; height: 40px; margin-left: 120px; margin-top: 60px;">Cancel & Clear
+      Selection</button>
+			
+	</div>
+</body>
+<script>
+	function submitAnswer() {
+		var question = document.getElementById("question");
+		var selected = 0;
+		var correctAns = "1";
+		var a = getParamHash();
+		var totalQs = parseInt(a["totalQ"] == null ? 0 : a["totalQ"]) + 1;
+		var correctQs = parseInt(a["correctQ"] == null ? 0 : a["correctQ"]);
+		var totalVs = parseInt(a["totalV"] == null ? 0 : a["totalV"]);
+		var correctVs = parseInt(a["correctV"] == null ? 0 : a["correctV"]);
+		var totalRs = parseInt(a["totalR"] == null ? 0 : a["totalR"]);
+		var correctRs = parseInt(a["correctR"] == null ? 0 : a["correctR"]);
+		for (var i = 0; i < question.ans.length; i++) {
+			if (question.ans[i].checked) {
+				selected = 1;
+				var selectedValue = question.ans[i].value;
+				if (selectedValue == correctAns) {
+					correctQs++;
+				}
+				break;
+			}
+		}
+		if (selected == 0) {
+			alert("Select an answer");
+		} else {
+			location = "english.html?correctQ=" + correctQs + "&totalQ="
+			+ totalQs + "&correctR=" + correctRs + "&totalR=" + totalRs
+			+ "&correctV=" + correctVs + "&totalV=" + totalVs;
+		}
+		return false;
+	}
+	function ResetAction() {
+		var question = document.getElementById("question");
+		for (var i = 0; i < question.ans.length; i++) {
+			if (question.ans[i].checked == true) {
+				question.ans[i].checked = false;
+			}
+		}
+	}
+	function getParamHash() {
+		var input = [], params;
+		var param_var = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < param_var.length; i++) {
+			params = param_var[i].split('=');
+			input.push(params[0]);
+			input[params[0]] = params[1];
+		}
+		return input;
+	}
+</script>
+</html>

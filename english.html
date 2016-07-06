@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="English Question Page">
+    <meta name="author" content="Neha Viswanathan">
+    <title>English Question</title>
+
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+    <div id="container" style="height:500px;width:70%;border:2px solid;margin:0 auto;position:relative;">
+      <header style="background-color:#C2C2C2;height:50px;font-weight:bold;font-size:15px;">
+        <br>
+        <center style="font-size:15px;">Question 3</center>
+      </header>
+      <br>
+      <div style="width:900px; float:left;">
+  			<div style="height:100px; width:500px; float:left;">
+  				<p style="margin-left:40px; font-size:15px">As per the latest twitter news, complete the article snippet given by selecting appropriate 
+choices for the blanks.</p>
+			</div>
+			<div style="width:350px; height:100px; float:left;">
+				<p style="font-size:15px;">"<br>Twitter wants more cash. The company announced two <mark id="m1" onclick="displaymark1()">$____</mark>
+					million debt offerings in a filing today, each with a potential 100$ increase provided that the sales are oversubscribed. Assuming full 
+tip, including the $100 million boosters, <mark id="m2" onclick="displaymark2()">$____</mark> will raise up to $1.5 billion with the two offerings.<br>
+				"<br>Source: http://techcrunch.com/2014/09/10/twitter-to-raise-up-to-1-5b-in-debt-offering/</p><br>
+			</div>	
+		</div>
+	<form id="question" onSubmit=" return submitAnswer()">
+			<div id="menu" style="height:150px; width: 500px;float: left;">
+				<div id="change1" style="float: left;">
+					<input type="radio" id="option1" value="Mark1: $650" name="ans1" onchange="onButtonClick1(this);"
+						style="margin-left: 40px; margin-top: 30px;">Option 1 Mark1: $650
+					<br> <br> <br> 
+					<input type="radio" id="option3" value="Mark1: $550" name="ans1" onchange="onButtonClick1(this);" style="margin-left: 40px;">Option 2 Mark1:$550
+					<br> <br> <br>
+					<input type="radio" id="option5" value="Mark1: $750" name="ans1" onchange="onButtonClick1(this);" 
+						style="margin-left: 40px;">Option 3 Mark1: $750
+				</div>
+		
+				<div id="change2">
+					<input type="radio" id="option2" value="Mark2: Twitter" name="ans2" onchange="onButtonClick2(this);"
+						style="margin-left: 40px; margin-top: 30px;">Option 1 Mark2: Twitter
+					<br> <br> <br>
+					<input type="radio" id="option4" value="Mark2: Google" name="ans2" onchange="onButtonClick2(this);"
+						style="margin-left: 40px;">Option 2 Mark2: Google
+					<br> <br> <br>
+					<input type="radio" id="option6" value="Mark2: Facebook" name="ans2" onchange="onButtonClick2(this);"
+						style="margin-left: 40px;">Option 3 Mark2: Facebook
+					<br> <br> <br>	
+				</div>
+			</div>
+		
+		<div style="width: 400px;">
+        <button value="Submit" style="font-weight: bold; float: left; height: 40px; margin-top: 30px; margin-left: 30px;">Submit &
+          Next Question</button>
+        &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      </div>
+    
+
+     <div style="width: 400px; margin-left: 250px;">
+      <button onclick="ResetAction();" style="font-weight: bold; height: 40px; margin-top: 10px;">Cancel & Clear Selection</button>
+    </div>
+    	</form>
+	</div>
+</body>
+<script>
+	function submitAnswer() {
+		var question = document.getElementById("question");
+		var selected = 0;
+		var correctAns1 = "Mark1: $650";
+		var correctAns2 = "Mark2: Twitter";
+		var a = getParamHash();
+		var totalQs = parseInt(a["totalQ"] == null ? 0 : a["totalQ"]);
+		var correctQs = parseInt(a["correctQ"] == null ? 0 : a["correctQ"]);
+		var totalVs = parseInt(a["totalV"] == null ? 0 : a["totalV"]);
+		var correctVs = parseInt(a["correctV"] == null ? 0 : a["correctV"]);
+		var totalRs = parseInt(a["totalR"] == null ? 0 : a["totalR"]) + 1;
+		var correctRs = parseInt(a["correctR"] == null ? 0 : a["correctR"]);
+		var ans1, ans2;
+		for (var i = 0; i < question.ans1.length; i++) {
+			if (question.ans1[i].checked) {
+				selected = 1;
+				ans1 = question.ans1[i].value;
+				break;
+			}
+		}
+		for (var i = 0; i < question.ans2.length; i++) {
+			if (question.ans2[i].checked) {
+				selected++;
+				ans2 = question.ans2[i].value;
+				break;
+			}
+		}
+		if (selected < 2) {
+			alert("Select both the answers");
+		} else {
+			if (ans1 == correctAns1 && ans2 == correctAns2) {
+				correctRs++;
+			}
+			location = "audiovideo.html?correctQ=" + correctQs + "&totalQ="
+			+ totalQs + "&correctR=" + correctRs + "&totalR=" + totalRs
+			+ "&correctV=" + correctVs + "&totalV=" + totalVs;
+		}
+		return false;
+	}
+	
+	function getParamHash() {
+		var input = [], params;
+		var param_var = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < param_var.length; i++) {
+			params = param_var[i].split('=');
+			input.push(params[0]);
+			input[params[0]] = params[1];
+		}
+		return input;
+	}
+
+	function onButtonClick1() {
+		var option1 = document.getElementsByName("ans1");
+		var val1 = document.querySelector('input[name="ans1"]:checked').value;
+		document.getElementById("m1").innerHTML = val1;
+	}
+
+	function onButtonClick2() {
+		var option1 = document.getElementsByName("ans2");
+		var val1 = document.querySelector('input[name="ans2"]:checked').value;
+		document.getElementById("m2").innerHTML = val1;
+	}
+
+	function displaymark1() {
+		document.getElementById("change1").style.display = "block";
+	}
+
+	function displaymark2() {
+		document.getElementById("change2").style.display = "block";
+	}
+	function ResetAction() {
+		var question = document.getElementById("question");
+		for (var i = 0; i < question.ans1.length; i++) {
+			if (question.ans1[i].checked == true) {
+				question.ans1[i].checked = false;
+			}
+		}
+		for (var i = 0; i < question.ans2.length; i++) {
+			if (question.ans2[i].checked == true) {
+				question.ans2[i].checked = false;
+			}
+		}
+	}
+</script>
+</html>

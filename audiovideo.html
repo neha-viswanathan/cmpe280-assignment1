@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Audio/Video Question Page">
+    <meta name="author" content="Neha Viswanathan">
+    <title>Audio/Video Question</title>
+  </head>
+  <body>
+   <br>
+	<br>
+	<br>
+	<div id="container" style="height: 500px; width: 65%; border: 2px solid; margin: 0 auto; position: relative;">
+
+    <header style="background-color: #C2C2C2; height: 50px; font-weight: bold;">
+      <br>
+      <center style="font-size: 15px;">Question 4</center>
+    </header>
+
+    <br>
+    <div style="float: left; width: 900px;">
+      <div style="height: 100px; float: left; width: 450px;">
+        <p style="margin-left: 50px;">
+          Watch the video and answer the following question.<br> What is the source as mentioned in the video?
+        </p>
+      </div>   
+	    <div style="float: left; width: 400px; height: 100px; margin-left: 20px;">
+		<video width="300px"  controls>
+			<source type="video/mp4" 
+src="http://svs.gsfc.nasa.gov/vis/a010000/a010500/a010513/G2009-120_Landsat_Flyby_MASTER_ipod_sm.mp4">
+			Your browser does not support HTML5 video.</video>
+			<p style="font-size: 15px;"> <b>Landsat Flyby</b><br> <br>Source: http://svs.gsfc.nasa.gov/</p>
+
+		
+		</div>
+    </div>
+
+
+    <form id="question" onSubmit=" return submitAnswer()">
+      <div id="menu" style="height: 200px; float: left; width: 100%;">
+        <input type="radio" id="option1" value="1" name="ans" style="margin-left: 70px; margin-top: 
+30px;"><label>NASA.Gov</label>
+        <input type="radio" id="option2" value="2" name="ans" style="margin-left: 70px;"><label>Data.Gov</label><br>
+        <br> <br> <br>
+		<input type="radio" id="option3" value="3" name="ans" style="margin-left: 70px;"><label>Facebook</label>
+        <input type="radio" id="option4" value="4" name="ans" style="margin-left: 85px;"><label>XYZ.net</label>
+      </div>
+	  <div style="width: 400px;">
+        <button value="Submit" style="font-weight: bold; float: left; height: 40px; margin-top: 30px; margin-left: 30px;">Submit &
+          Next Question</button>
+        &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      </div>
+    </form>
+
+    <div style="width: 400px; margin-left: 250px;">
+      <button onclick="ResetAction();" style="font-weight: bold; height: 40px; margin-top: 10px;">Cancel & Clear Selection</button>
+    </div>		</div>	
+	
+  </body>
+  <script>
+	function submitAnswer() {
+		var question = document.getElementById("question");
+		var selected = 0;
+		var correctAns = "1";
+		var a = getParamHash();
+		var totalQs = parseInt(a["totalQ"] == null ? 0 : a["totalQ"]);
+		var correctQs = parseInt(a["correctQ"] == null ? 0 : a["correctQ"]);
+		var totalVs = parseInt(a["totalV"] == null ? 0 : a["totalV"]) + 1;
+		var correctVs = parseInt(a["correctV"] == null ? 0 : a["correctV"]);
+		var totalRs = parseInt(a["totalR"] == null ? 0 : a["totalR"]);
+		var correctRs = parseInt(a["correctR"] == null ? 0 : a["correctR"]);
+		for (var i = 0; i < question.ans.length; i++) {
+			if (question.ans[i].checked) {
+				selected = 1;
+				var selectedValue = question.ans[i].value;
+				if (selectedValue == correctAns) {
+					correctVs++;
+				}
+				break;
+			}
+		}
+		if (selected == 0) {
+			alert("Select an answer");
+		} else {
+			location = "survey.html?correctQ=" + correctQs + "&totalQ="
+					+ totalQs + "&correctR=" + correctRs + "&totalR=" + totalRs
+					+ "&correctV=" + correctVs + "&totalV=" + totalVs;
+		}
+		return false;
+	}
+		function getParamHash() {
+		var input = [], params;
+		var param_var = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < param_var.length; i++) {
+			params = param_var[i].split('=');
+			input.push(params[0]);
+			input[params[0]] = params[1];
+		}
+		return input;
+	}
+	function ResetAction() {
+		var question = document.getElementById("question");
+		for (var i = 0; i < question.ans.length; i++) {
+			if (question.ans[i].checked == true) {
+				question.ans[i].checked = false;
+			}
+		}
+	}
+</script>
+</html>

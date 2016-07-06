@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Survey Question Page">
+    <meta name="author" content="Neha Viswanathan">
+    <title>Survey Question</title>
+  </head>
+  <body>
+   <br><br><br>
+   <div id="container" style="height:500px;width:70%;border:2px solid;margin:0 auto;position:relative;">
+		<header style="background-color:#C2C2C2;height:50px;font-weight:bold;font-size:15px;">
+			<br>
+			<center style="font-size:15px;">Survey Question</center>
+		</header>
+
+    <br>
+
+    <br>
+
+    <p style="margin-left: 40px;">
+       How did you like the center?
+    </p>
+    <div style="width: 90%; margin-left: 40px; height: 100px;">
+      <div style="width: 15%; float: left;">
+        <p>
+          Comments:
+        </p>
+      </div>
+      <div style="width: 50%; float: left;">
+        <textarea rows="6" cols="70"> </textarea>
+      </div>
+    </div>
+
+    <div style="height: 70px; float: left; width: 900px;">
+      <p style="margin-left: 40px; font-size: 15px; font-family: arial;">
+        Select Test Area Location:
+      </p>
+    </div>
+
+    <div style="width: 65%; margin-left: 40px; height: 155px;">
+      <div style="width: 35%; float: left;">
+         City: <input list="city" name="city">
+        <datalist id="city">
+          <option value="San Jose">
+          <option value="San Franscisco">
+          <option value="Mountain View">
+          <option value="Palo Alto">
+        </datalist>
+      </div>
+
+      <div style="width: 55%; float: left;">
+         Room Number#: <input list="roomno" name="roomno">
+        <datalist id="roomno">
+          <option value="Room 210">
+          <option value="Room 110">
+          <option value="Room 410">
+          <option value="Room 337">
+        </datalist>
+      </div>
+    </div>
+	 <form id="buttontype" onSubmit=" return submitscore()">
+      <div id="menu" style="height: 150px; float: left; width: 600px;">
+        <button value="Submit" style="font-weight: bold; margin-left: 50px; margin-top: 40px; height: 50px; width: 30%;">Submit &
+          Get Score</button>
+        &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button onclick="location.href = 'result.html';" id="sixthpagecancel"
+          style="font-weight: bold; height: 50px; width: 30%;">Skip & Get Score</button>
+
+      </div>
+    </form>
+  </div>
+  </body>
+<script>
+	function submitscore() {
+		var a = getUrl();
+		var totalQs = parseInt(a["totalQ"] == null ? 0 : a["totalQ"]);
+		var correctQs = parseInt(a["correctQ"] == null ? 0 : a["correctQ"]);
+		var totalVs = parseInt(a["totalV"] == null ? 0 : a["totalV"]);
+		var correctVs = parseInt(a["correctV"] == null ? 0 : a["correctV"]);
+		var totalRs = parseInt(a["totalR"] == null ? 0 : a["totalR"]);
+		var correctRs = parseInt(a["correctR"] == null ? 0 : a["correctR"]);
+		location = "result.html?correctQ=" + correctQs + "&totalQ=" + totalQs
+				+ "&correctR=" + correctRs + "&totalR=" + totalRs
+				+ "&correctV=" + correctVs + "&totalV=" + totalVs;
+		return false;
+	}
+	function getUrl() {
+		var input = [], hash;
+		var hash_var = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hash_var.length; i++) {
+			hash = hash_var[i].split('=');
+			input.push(hash[0]);
+			input[hash[0]] = hash[1];
+		}
+		return input;
+	}
+</script>
+</html>
